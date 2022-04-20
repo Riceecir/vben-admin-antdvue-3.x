@@ -2,6 +2,7 @@ import { computed, Ref, ref, unref } from 'vue';
 
 export interface UseFullScreenContext {
   wrapClassName: Ref<string | undefined>;
+  class: Ref<string | undefined>;
   modalWrapperRef: Ref<ComponentRef>;
   extHeightRef: Ref<number>;
 }

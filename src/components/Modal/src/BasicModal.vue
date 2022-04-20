@@ -117,6 +117,7 @@
         modalWrapperRef,
         extHeightRef,
         wrapClassName: toRef(getMergeProps.value, 'wrapClassName'),
+        class: toRef(getMergeProps.value, 'wrapClassName'),
       });
 
       // modal component does not need title and origin buttons
@@ -131,6 +132,7 @@
         return {
           ...opt,
           wrapClassName: unref(getWrapClassName),
+          class: unref(getWrapClassName),
         };
       });
 
@@ -140,6 +142,7 @@
           ...unref(getMergeProps),
           visible: unref(visibleRef),
           wrapClassName: unref(getWrapClassName),
+          class: unref(getWrapClassName),
         };
         if (unref(fullScreenRef)) {
           return omit(attr, ['height', 'title']);

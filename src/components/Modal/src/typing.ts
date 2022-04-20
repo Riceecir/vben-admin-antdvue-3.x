@@ -187,6 +187,7 @@ export interface ModalProps {
    * @type string
    */
   wrapClassName?: string;
+  class?: string;
 
   /**
    * The z-index of the Modal
