@@ -69,7 +69,7 @@
     padding-top: 2px;
 
     &__overlay {
-      max-width: 360px;
+      width: 400px;
     }
 
     .ant-tabs-content {
