@@ -5,7 +5,7 @@ import { tryOnMounted, tryOnUnmounted } from '@vueuse/core';
 
 export function useNow(immediate = true) {
   const localeStore = useLocaleStore();
-  const localData = dateUtil.localeData(localeStore.getLocale);
+  dateUtil.locale(localeStore.getLocale.toLocaleLowerCase().replace('_', '-'));
   let timer: IntervalHandle;
 
   const state = reactive({
@@ -28,13 +28,13 @@ export function useNow(immediate = true) {
 
     state.year = now.get('y');
     state.month = now.get('M') + 1;
-    state.week = localData.weekdays()[now.day()];
+    state.week = now.format('dddd');
     state.day = now.get('D');
     state.hour = h;
     state.minute = m;
     state.second = s;
 
-    state.meridiem = localData.meridiem(Number(h), Number(h), true);
+    state.meridiem = Number(h) > 12 ? 'PM' : 'AM';
   };
 
   function start() {
